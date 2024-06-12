@@ -1,0 +1,26 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<article>
+  <h1>{frontmatter.title}</h1>
+  <time class="publi">
+    Publicado el: {frontmatter.pubDate.toString().slice(0, 10)}
+  </time>
+  <p><em>{frontmatter.description}</em></p>
+  <slot />
+  <img src={frontmatter.image.url} alt={frontmatter.image.alt} width="300" />
+  <address>Escrito por {frontmatter.author}</address>
+</article>
+
+<style>
+  article {
+    padding: 1rem 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(239, 239, 239);
+  }
+  .publi {
+    color: rgb(117, 117, 117);
+  }
+
+</style>
