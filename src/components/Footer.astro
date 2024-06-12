@@ -1,0 +1,31 @@
+---
+import Social from "./Social.astro";
+
+const platform = "github";
+const username = "DarkJutsu";
+const instagram = "instagram";
+const linkedin = "linkedin";
+const twitter = "twitter";
+---
+
+<footer>
+  <p>
+    ¡Mas información sobre mis proyectos en <a
+      href={`https://www.${platform}.com/${username}`}
+      target="_blank">{platform}</a
+    >!
+  </p>
+  <Social platform={instagram} username={username} />
+  <Social platform={twitter} username={username} />
+  <Social platform={linkedin} username={username} />
+</footer>
+
+<style>
+  footer {
+    padding: 0;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+</style>

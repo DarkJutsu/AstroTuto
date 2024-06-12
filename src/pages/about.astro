@@ -1,4 +1,8 @@
 ---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
 const pageTitle = "About";
 
 const identity = {
@@ -12,6 +16,10 @@ const skills = ["Java", "JavaScript", "React", "PHP"];
 const happy = true;
 const finished = false;
 const goal = 3;
+
+const skillColor = "navy";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -21,19 +29,24 @@ const goal = 3;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <style define:vars={{ skillColor, fontWeight, textCase }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: var(--fontWeight);
+        text-transform: var(--textCase);
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
-      </nav>
-    </header>
+    <Header />
     <h1>{pageTitle}</h1>
     <h2>¡Blog para el tutoral de Astro!</h2>
     <p>Practicando los aspectos basicos de Astro con un tutorial de un Blog</p>
-    <footer>
+    <section>
       <p>He aqui algunos datos sobre mí:</p>
       <ul>
         <li>Me llamo {identity.firstName}.</li>
@@ -51,7 +64,7 @@ const goal = 3;
       </ul>
       <p>Mis habilidades son:</p>
       <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+        {skills.map((skill) => <li class="skill">{skill}</li>)}
       </ul>
       {happy && <p>¡Estoy feliz!</p>}
       {finished && <p>¡He terminado este tutorial!</p>}
@@ -62,6 +75,7 @@ const goal = 3;
           <p>Mi objetivo no son 3 dias</p>
         )
       }
-    </footer>
+    </section>
+    <Footer />
   </body>
 </html>
