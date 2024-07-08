@@ -5,6 +5,14 @@ html{
   background-color: #f8f7f3;
   font-family: sans-serif;
 }
+html.dark{
+  background-color: #0d0950;
+  color: #f8f7f3;
+}
+.dark .nav-links a{
+  color: #f8f7f3;
+}
+
 body{
   margin: 0 auto;
   width: 100%;
